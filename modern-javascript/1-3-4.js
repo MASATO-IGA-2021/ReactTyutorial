@@ -20,3 +20,10 @@ console.log(sum(10, 25, 2))
 console.log(sum(7, 13, 25, 6, 100))
 console.log(sum([10, 25, 2]));
 console.log(sum(...[10, 25, 2]));
+
+//分割代入によるオブジェクトの引数の分解
+function greet({name, age}) {
+    console.log(`こんにちは、私は、${name}です。${age}歳です。`);
+}
+const my = {name: '佐藤理央', sex: 'female', age: 18};
+greet(my);
