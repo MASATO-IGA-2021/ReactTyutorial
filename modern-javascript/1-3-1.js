@@ -7,7 +7,7 @@ console.log(x) //ReferenceError: x is not defined
 
 //同名の変数を監視する
 let msg = 'Hello!';
-let msg = 'Good Bye!';
+// let msg = 'Good Bye!';
 console.log(msg); //Identifier 'msg' has already been declared
 
 //リスト1-3-2
