@@ -1,15 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import StateForm from './StateForm';
-import StateFormUC from './StateFormUC';
-import FormTextarea from './FormTextarea';
-import FormSelect from './FormSelect';
-import FormList from './FormList';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import FormCheck from "./FormCheck";
+import FormCheckMulti from "./FormCheckMulti";
+import FormList from "./FormList";
+import FormRadio from "./FormRadio";
+import FormSelect from "./FormSelect";
+import FormTextarea from "./FormTextarea";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import StateForm from "./StateForm";
+import StateFormUC from "./StateFormUC";
+import StateNestImmer2 from "./StateImmer2";
+import StateNest from "./StateNest";
+import StateNestImmer from "./StateNestImmer";
+import StateTodo from "./StateTodo";
+import FormBasic from "./FormBasic";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
@@ -18,6 +26,14 @@ root.render(
     <FormTextarea />
     <FormSelect />
     <FormList />
+    <FormRadio />
+    <FormCheck />
+    <FormCheckMulti />
+    <StateNest />
+    <StateNestImmer />
+    <StateNestImmer2 />
+    <StateTodo />
+    <FormBasic />
   </React.StrictMode>
 );
 
