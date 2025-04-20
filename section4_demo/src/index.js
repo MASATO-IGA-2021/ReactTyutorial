@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import StateForm from './StateForm';
+import StateFormUC from './StateFormUC';
+import FormTextarea from './FormTextarea';
+import FormSelect from './FormSelect';
+import FormList from './FormList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <StateForm />
+    <StateFormUC />
+    <FormTextarea />
+    <FormSelect />
+    <FormList />
   </React.StrictMode>
 );
 

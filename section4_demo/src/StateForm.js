@@ -10,8 +10,9 @@ export default function StateForm() {
       ...form,
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.name, e.target.value);
   };
-  const show = () => {
+  const show = (e) => {
     console.log(`こんにちは、${form.name}さん, ${form.age}歳`);
   };
   return (
