@@ -10,13 +10,14 @@ import reportWebVitals from "./reportWebVitals";
 import StateBasic from "./StateBasic";
 // import ForNest from "./ForNest";
 // import ForFilter from "./ForFilter";
+import EventKey from "./EventKey";
 import EventPoint from "./EventPoint";
+import EventPropagation from "./EventPropagation";
 import ForSort from "./ForSort";
 import StateParent from "./StateParent";
 import StyledPanel from "./StyledPanel";
 import TitledPanel from "./TitledPanel";
 import TitledPanel2 from "./TitledPanel2";
-import EventKey from "./EventKey";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -41,6 +42,7 @@ root.render(
     {/* <EventCompare /> */}
     <EventPoint />
     <EventKey />
+    <EventPropagation />
   </React.StrictMode>
 );
 
