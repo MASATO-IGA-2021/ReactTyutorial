@@ -16,12 +16,15 @@ import StateNest from "./StateNest";
 import StateNestImmer from "./StateNestImmer";
 import StateTodo from "./StateTodo";
 import FormBasic from "./FormBasic";
-
+import FormBasic2 from "./FormBasic2";
+import FormYup from "./FormYup";
+import FormYup2 from "./FormYup2";
+import FormJapan from "./FormJapan";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    <StateForm />
+    {/* <StateForm />
     <StateFormUC />
     <FormTextarea />
     <FormSelect />
@@ -33,7 +36,11 @@ root.render(
     <StateNestImmer />
     <StateNestImmer2 />
     <StateTodo />
-    <FormBasic />
+    <FormBasic /> */}
+    {/* <FormBasic2 /> */}
+    {/* <FormYup /> */}
+    {/* <FormYup2 /> */}
+    <FormJapan />
   </React.StrictMode>
 );
 

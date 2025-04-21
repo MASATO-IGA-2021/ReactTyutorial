@@ -1,17 +1,24 @@
 import React from 'react'; 
 import { useForm } from 'react-hook-form';
-export default function FormBasic() {
+export default function FormBasic2() {
     const defaultValues = {
         name: '名無し権兵衛',
         email: 'admin@example.com',
         gender: 'male',
         memo: ''
     }
-    const {register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm({
+    const {register, handleSubmit, formState: { errors, isDirty, isValid, isSubmitting } } = useForm({
         defaultValues: defaultValues
     });
 
-    const onsubmit = data => console.log(data);
+    const onsubmit = data =>{
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve();
+                console.log(data);
+            }, 4000);
+        })
+    };
     const onerror = error => console.log(error);
 
     return (
@@ -64,12 +71,25 @@ export default function FormBasic() {
                         minLength: {
                             value: 10,
                             message: '備考は10文字以上です'
+                        },
+                        validate: {
+                            ng: (value, formValues) => {
+                                //不適切ワードを準備
+                                const tags = ['暴力', '死', 'グロ']
+                                for (const tag of tags) {
+                                    if (value.includes(tag)) {
+                                        return '備考にNGワードが含まれています。'
+                                    }
+                                }
+                                return true;
+                            }
                         }
                 })} />
                 <div>{errors.memo?.message}</div>
             </div>
             <div>
-                <button type='submit' disabled={ !isDirty || !isValid }>送信</button>
+                <button type='submit' disabled={ !isDirty || !isValid || isSubmitting }>送信</button>
+                {isSubmitting && <div>送信中...</div>}
             </div>
         </form>
     );
