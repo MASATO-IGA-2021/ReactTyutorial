@@ -30,8 +30,23 @@
        - Promiseオブジェクトは生成直後Pending(保留中)状態であり、非同期処理を終了することでFulfilled(成功)/Rejected(失敗)の状態になる。
        - Promiseオブジェクトは必ず一方向性であるため、Fulfilled(成功)/Rejected(失敗)からPendingに戻ることはない。
 - Promiseの状態の変化を検知する
+- Promiseの結果を表示する
+  - <Suspense>要素はPromiseの変化に応じて描画を再試行するだけで、非同期処理の中身を見ているわけではない。
+#### 5-1-3 コンポーネントの描画時間を計測する - Profilerコンポーネント
+```
+<Profiler id='id' onRender={handleRender}>
+  contents
+</Profiler>
 
+id: Profilerを識別するid値
+handleRender: 配下のコンポーネントが描画される際に実行するコールバック関数
+contents: パフォーマンスを計測する対象
+```
 
 ### 5-2.コンポーネント開発でのスタイル定義
+#### 5-2-1 JSX式にスタイルシートを埋め込む -Styled JSX
+- **Styled JSX(CSS-in-JS)**:JSX式にスタイル定義を埋め込む形式のライブラリ
+  - コンポーネントファイルでロジック/スタイルをまとめて管理できる
+  - .vueファイルともよく似た仕組み
 
 ### 5-3.コンポーネントのその他の話題
