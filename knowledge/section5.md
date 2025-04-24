@@ -23,16 +23,18 @@
 
 - コンポーネント以外のリソース取得(=Promise による非同期処理)を<Suspense>要素で待ち受けることが可能になっている。
 - Promise による非同期処理を受け取る
-  ```throw new Promise((resolve, reject) => { })```
-  - **<Suspense>要素**：子要素から投げられたPromiseを補足すると、フォールバック(代替コンテンツ)を表示するコンポーネント
-  - Promiseと状態管理
-    - Promiseは非同期処理の状態を管理するためのオブジェクト
-       - Promiseオブジェクトは生成直後Pending(保留中)状態であり、非同期処理を終了することでFulfilled(成功)/Rejected(失敗)の状態になる。
-       - Promiseオブジェクトは必ず一方向性であるため、Fulfilled(成功)/Rejected(失敗)からPendingに戻ることはない。
-- Promiseの状態の変化を検知する
-- Promiseの結果を表示する
-  - <Suspense>要素はPromiseの変化に応じて描画を再試行するだけで、非同期処理の中身を見ているわけではない。
-#### 5-1-3 コンポーネントの描画時間を計測する - Profilerコンポーネント
+  `throw new Promise((resolve, reject) => { })`
+  - **<Suspense>要素**：子要素から投げられた Promise を補足すると、フォールバック(代替コンテンツ)を表示するコンポーネント
+  - Promise と状態管理
+    - Promise は非同期処理の状態を管理するためのオブジェクト
+      - Promise オブジェクトは生成直後 Pending(保留中)状態であり、非同期処理を終了することで Fulfilled(成功)/Rejected(失敗)の状態になる。
+      - Promise オブジェクトは必ず一方向性であるため、Fulfilled(成功)/Rejected(失敗)から Pending に戻ることはない。
+- Promise の状態の変化を検知する
+- Promise の結果を表示する
+  - <Suspense>要素は Promise の変化に応じて描画を再試行するだけで、非同期処理の中身を見ているわけではない。
+
+#### 5-1-3 コンポーネントの描画時間を計測する - Profiler コンポーネント
+
 ```
 <Profiler id='id' onRender={handleRender}>
   contents
@@ -44,9 +46,71 @@ contents: パフォーマンスを計測する対象
 ```
 
 ### 5-2.コンポーネント開発でのスタイル定義
-#### 5-2-1 JSX式にスタイルシートを埋め込む -Styled JSX
-- **Styled JSX(CSS-in-JS)**:JSX式にスタイル定義を埋め込む形式のライブラリ
+
+#### 5-2-1 JSX 式にスタイルシートを埋め込む -Styled JSX
+
+- **Styled JSX(CSS-in-JS)**:JSX 式にスタイル定義を埋め込む形式のライブラリ
+
   - コンポーネントファイルでロジック/スタイルをまとめて管理できる
-  - .vueファイルともよく似た仕組み
+  - .vue ファイルともよく似た仕組み
+  - Styled JSX をインストール
+
+  ```
+  npm install styled-jsx
+  npm run eject
+  ```
+
+  - Styled JSX の基本
+
+  ```
+  <style jsx>{`
+  スタイル定義
+  `}</style>
+  ```
+
+  - `<style>`要素に jsx 属性を付与する、スタイル全体を{`・・・`}で括る。
+
+  - Styled JSX の様々な記法
+
+    1. **グローバルスタイル**: アプリ全体に適用されるスタイルを定義したい場合に global 属性を付与する
+
+    ```
+    …(省略)
+    return (
+      <>
+      <style jsx global>{`
+      h3 {
+        background-color: Yellow;
+        }
+      `}</style>
+
+      <div className="panel"><b>Styled JSX</b>は、JSX式にスタイル定義を</div>
+      </>
+    )
+    ```
+
+    2. スタイル定義の外部化
+
+    - より複雑なコンポーネントでは、.js ファイルの肥大化を防ぐためにスタイル定義を外部化したくなることがある。その場合、css 関数を利用することでスタイル定義を定数として切り出すことも可能
+    - グローバルスタイルで定義したい場合`css`→`css.global`
+
+
+    3. ダイナミックスタイル
+    - テンプレート文字式に式・変数を埋め込むだけ
+      - 埋め込みの式は{...}ではなく、${...}
+      - 性的なスタイル定義と動的なスタイル定義は切り離す
+#### 5-2-2 標準タグを拡張してスタイル付きタグを定義する -Styled Components
+- **Styled Components**はCSS-in-JSに分類されるライブラリの一種
+```
+styled.tag`
+//style
+`
+```
+  - tag: 拡張するタグ名
+  - style: 適用するスタイル
+
+- 既存のコンポーネントにスタイル付けする
+- スタイル定義を外部化する
+
 
 ### 5-3.コンポーネントのその他の話題

@@ -3,19 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LazyBasic from './LazyBasic';
-import SuspenseSimple from './SuspenseSimple';
-import SuspenseResult from './SuspenseResult';
 import ProfilerBasic from './ProfilerBasic';
+import StyledBasic from './StyledBasic';
+import StyledCss from './StyledCss';
+import StyledDynamic from './StyledDynamic';
+import { MyStyledButton, MyButton } from './StyledComponent2';
+import StyledCommon from './StyledCommon';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    {/* <LazyBasic /> */}
-    {/* <SuspenseSimple /> */}
-    {/* <SuspenseResult /> */}
     <ProfilerBasic />
+    {/* <StyledCss /> */}
+    {/* <StyledDynamic theme={{
+      radius: false,
+      color: 'Yellow'
+    }}/> */}
+    {/* <StyledComponent /> */}
+    <MyButton >ボタン</MyButton>
+    <MyStyledButton>ボタン</MyStyledButton>
+    <StyledCommon />
   </React.StrictMode>
 );
 
