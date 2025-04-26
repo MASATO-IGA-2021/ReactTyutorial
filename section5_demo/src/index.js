@@ -9,10 +9,18 @@ import StyledCss from './StyledCss';
 import StyledDynamic from './StyledDynamic';
 import { MyStyledButton, MyButton } from './StyledComponent2';
 import StyledCommon from './StyledCommon';
+import StyledGlobal from './StyledGlobal';
+import EmotionJsx from './EmotionJSX';
+import PortalBasic from './PotalBasic';
+import ErrorRoot from './ErrorRoot';
+import ErrorRetryRoot from './ErrorRetryRoot';
+import ErrorEventRoot from './ErrorEventRoot';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
+    <div id='dialog'></div>
     <App />
     <ProfilerBasic />
     {/* <StyledCss /> */}
@@ -23,7 +31,13 @@ root.render(
     {/* <StyledComponent /> */}
     <MyButton >ボタン</MyButton>
     <MyStyledButton>ボタン</MyStyledButton>
+    <StyledGlobal />
     <StyledCommon />
+    <EmotionJsx />
+    <PortalBasic />
+    {/* <ErrorRoot /> */}
+    {/* <ErrorRetryRoot /> */}
+    <ErrorEventRoot />
   </React.StrictMode>
 );
 
