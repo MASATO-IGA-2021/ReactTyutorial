@@ -1,2 +1,3 @@
 ./Typescript/node_modules
 ./Typescript/dist
+./Typescript/package-lock.json
